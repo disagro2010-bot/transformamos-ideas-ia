@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Transformamos Ideas IA — Consultoría de Inteligencia Artificial para empresas de Cartagena de Indias y la Costa Caribe colombiana.">
+<meta property="og:title" content="Transformamos Ideas IA — Cartagena de Indias">
+<meta property="og:description" content="No venimos a explicarte el futuro. Venimos a construirlo contigo, aquí, en Cartagena.">
+<title>Transformamos Ideas IA | Cartagena de Indias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul:       #0B1E35;
+  --azul-m:     #1B3A5C;
+  --azul-c:     #2E86AB;
+  --acento:     #4FC3F7;
+  --oro:        #D4A843;
+  --blanco:     #F5F8FA;
+  --gris:       #8FA3B1;
+  --negro:      #070F18;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--negro);
+  color: var(--blanco);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── CURSOR ─────────────────────────────────────── */
+* { cursor: default; }
+a, button { cursor: pointer; }
+
+/* ── NAV ─────────────────────────────────────────── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(7,15,24,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(79,195,247,.08);
+  transition: padding .3s;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: .04em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--acento); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--gris);
+  text-decoration: none;
+  font-size: .875rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--acento); }
+.nav-lang {
+  display: flex; gap: .5rem;
+}
+.lang-btn {
+  background: none; border: 1px solid rgba(79,195,247,.3);
+  color: var(--gris); padding: .3rem .7rem;
+  font-size: .75rem; letter-spacing: .1em;
+  text-transform: uppercase; border-radius: 3px;
+  cursor: pointer; transition: all .2s;
+}
+.lang-btn.active, .lang-btn:hover {
+  background: var(--acento); color: var(--negro);
+  border-color: var(--acento);
+}
+
+/* ── HERO ─────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 3rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 75% 50%, rgba(46,134,171,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(27,58,92,.3) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(79,195,247,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,195,247,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 680px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--acento); margin-bottom: 2rem;
+  border: 1px solid rgba(79,195,247,.25);
+  padding: .45rem 1rem; border-radius: 20px;
+  animation: fadeUp .8s ease both;
+}
+.hero-tag::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--acento); border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform: scale(1); }
+  50% { opacity:.4; transform: scale(1.5); }
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.04;
+  margin-bottom: 1.8rem;
+  animation: fadeUp .8s .1s ease both;
+}
+h1 em {
+  font-style: normal;
+  color: var(--acento);
+  position: relative;
+}
+h1 em::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--acento), transparent);
+}
+.hero-sub {
+  font-size: 1.15rem; color: var(--gris);
+  line-height: 1.7; max-width: 520px;
+  margin-bottom: 2.8rem;
+  animation: fadeUp .8s .2s ease both;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp .8s .3s ease both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--acento); color: var(--negro);
+  padding: .85rem 2rem; border-radius: 4px;
+  font-weight: 600; font-size: .9rem;
+  letter-spacing: .04em; text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(79,195,247,.3);
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 1px solid rgba(79,195,247,.35);
+  color: var(--acento); padding: .85rem 2rem;
+  border-radius: 4px; font-size: .9rem;
+  text-decoration: none; letter-spacing: .04em;
+  transition: all .2s;
+}
+.btn-secondary:hover {
+  background: rgba(79,195,247,.08);
+  border-color: var(--acento);
+}
+.hero-right {
+  position: absolute; right: 3rem; top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  animation: fadeIn 1.2s .4s ease both;
+}
+.orbit {
+  width: 380px; height: 380px;
+  position: relative;
+}
+.orbit-ring {
+  position: absolute; inset: 0;
+  border: 1px solid rgba(79,195,247,.15);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+.orbit-ring:nth-child(2) {
+  inset: 40px;
+  border-color: rgba(79,195,247,.1);
+  animation-duration: 30s; animation-direction: reverse;
+}
+.orbit-ring:nth-child(3) {
+  inset: 80px;
+  border-color: rgba(79,195,247,.2);
+  animation-duration: 15s;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.orbit-center {
+  position: absolute; inset: 100px;
+  background: radial-gradient(circle, rgba(46,134,171,.3) 0%, transparent 70%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.orbit-ia {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem; font-weight: 900;
+  color: var(--acento); letter-spacing: -.02em;
+  text-shadow: 0 0 40px rgba(79,195,247,.5);
+}
+.orbit-dot {
+  position: absolute; width: 8px; height: 8px;
+  background: var(--acento); border-radius: 50%;
+  top: 50%; left: 50%;
+}
+.orbit-dot:nth-child(4) { transform: rotate(45deg) translateY(-150px); }
+.orbit-dot:nth-child(5) { transform: rotate(160deg) translateY(-110px); }
+.orbit-dot:nth-child(6) { transform: rotate(260deg) translateY(-70px); }
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(24px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity:0; } to { opacity:1; }
+}
+
+/* ── SEPARADOR ───────────────────────────────────── */
+.sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79,195,247,.2), transparent);
+  margin: 0 3rem;
+}
+
+/* ── SECCION GENÉRICA ───────────────────────────── */
+section { padding: 7rem 3rem; }
+.section-tag {
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--acento); margin-bottom: 1rem;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; line-height: 1.15;
+  margin-bottom: 1.2rem;
+}
+h2 span { color: var(--acento); }
+.section-sub {
+  color: var(--gris); font-size: 1.05rem;
+  line-height: 1.7; max-width: 560px;
+  margin-bottom: 3.5rem;
+}
+
+/* ── POR QUE ─────────────────────────────────────── */
+#porque {
+  background: linear-gradient(180deg, var(--negro) 0%, var(--azul) 100%);
+}
+.porque-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+}
+.porque-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(79,195,247,.1);
+  border-radius: 8px; padding: 2rem;
+  transition: border-color .3s, transform .3s;
+  position: relative; overflow: hidden;
+}
+.porque-card::before {
+  content: '';
+  position: absolute; top:0; left:0;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, var(--acento), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.porque-card:hover {
+  border-color: rgba(79,195,247,.3);
+  transform: translateY(-4px);
+}
+.porque-card:hover::before { opacity:1; }
+.card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: rgba(79,195,247,.15); line-height: 1;
+  margin-bottom: .5rem;
+}
+.porque-card h3 {
+  font-size: 1.1rem; font-weight: 600;
+  margin-bottom: .6rem;
+}
+.porque-card p { color: var(--gris); font-size: .95rem; line-height: 1.65; }
+
+/* ── SERVICIOS ───────────────────────────────────── */
+#servicios { background: var(--azul); }
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; max-width: 1100px;
+}
+.servicio-card {
+  background: rgba(7,15,24,.6);
+  border: 1px solid rgba(79,195,247,.12);
+  border-radius: 8px; padding: 2.5rem 2rem;
+  transition: all .3s; position: relative;
+}
+.servicio-card.featured {
+  border-color: var(--acento);
+  background: rgba(79,195,247,.05);
+}
+.servicio-card.featured::before {
+  content: 'RECOMENDADO';
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--acento); color: var(--negro);
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .15em; padding: .25rem .8rem;
+  border-radius: 20px;
+}
+.servicio-card:hover { transform: translateY(-6px); }
+.servicio-icon {
+  width: 48px; height: 48px;
+  background: rgba(79,195,247,.1);
+  border-radius: 8px; display: flex;
+  align-items: center; justify-content: center;
+  margin-bottom: 1.5rem; font-size: 1.4rem;
+}
+.servicio-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; margin-bottom: .5rem;
+}
+.servicio-nivel {
+  font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--acento); margin-bottom: 1rem;
+}
+.servicio-card p { color: var(--gris); font-size: .92rem; line-height: 1.65; margin-bottom: 1.5rem; }
+.servicio-precio {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--blanco);
+}
+.servicio-precio span { font-size: .85rem; color: var(--gris); font-family: 'DM Sans', sans-serif; font-weight: 400; }
+
+/* ── SOBRE MI ─────────────────────────────────────── */
+#sobre {
+  background: linear-gradient(180deg, var(--azul) 0%, var(--negro) 100%);
+}
+.sobre-wrap {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 5rem; align-items: center; max-width: 1100px;
+}
+.sobre-foto {
+  position: relative;
+}
+.sobre-foto img {
+  width: 100%; border-radius: 8px;
+  filter: grayscale(20%) contrast(1.05);
+  display: block;
+}
+.sobre-foto::before {
+  content: '';
+  position: absolute; inset: -12px;
+  border: 1px solid rgba(79,195,247,.2);
+  border-radius: 10px; z-index: -1;
+}
+.sobre-foto::after {
+  content: '';
+  position: absolute; bottom: -20px; right: -20px;
+  width: 80px; height: 80px;
+  background: var(--acento); border-radius: 4px;
+  z-index: -1; opacity: .3;
+}
+.sobre-texto h2 { margin-bottom: .8rem; }
+.sobre-texto .section-sub { margin-bottom: 2rem; }
+.sobre-texto blockquote {
+  border-left: 3px solid var(--acento);
+  padding-left: 1.5rem; margin: 2rem 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-style: italic;
+  color: var(--blanco); line-height: 1.6;
+}
+.hitos {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+.hito { text-align: center; }
+.hito-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 900;
+  color: var(--acento); line-height: 1;
+}
+.hito-label { font-size: .8rem; color: var(--gris); margin-top: .3rem; }
+
+/* ── CONTACTO ─────────────────────────────────────── */
+#contacto {
+  background: var(--negro);
+  text-align: center;
+}
+.contacto-inner { max-width: 680px; margin: 0 auto; }
+.contacto-inner h2 { margin-bottom: 1rem; }
+.contacto-inner .section-sub { margin: 0 auto 3rem; }
+.contacto-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.contacto-info {
+  margin-top: 3rem;
+  display: flex; gap: 3rem; justify-content: center;
+  flex-wrap: wrap;
+}
+.contacto-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: .4rem;
+}
+.contacto-item .ci-label {
+  font-size: .72rem; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--gris);
+}
+.contacto-item .ci-val {
+  font-size: .95rem; color: var(--blanco);
+  text-decoration: none; transition: color .2s;
+}
+.contacto-item .ci-val:hover { color: var(--acento); }
+
+/* ── FOOTER ───────────────────────────────────────── */
+footer {
+  padding: 2.5rem 3rem;
+  border-top: 1px solid rgba(79,195,247,.08);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--blanco);
+}
+.footer-logo span { color: var(--acento); }
+footer p { font-size: .82rem; color: var(--gris); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-size: .82rem; color: var(--gris);
+  text-decoration: none; transition: color .2s;
+}
+.footer-links a:hover { color: var(--acento); }
+
+/* ── SCROLL REVEAL ────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+/* ── IDIOMA ───────────────────────────────────────── */
+[data-lang] { display: none; }
+[data-lang].active { display: block; }
+span[data-lang].active { display: inline; }
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  #hero { flex-direction: column; padding: 7rem 1.5rem 3rem; }
+  .hero-right { position: relative; right: auto; top: auto; transform: none; margin-top: 3rem; }
+  .orbit { width: 260px; height: 260px; }
+  section { padding: 5rem 1.5rem; }
+  .porque-grid { grid-template-columns: 1fr; }
+  .servicios-grid { grid-template-columns: 1fr; }
+  .sobre-wrap { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Transformamos <span>Ideas IA</span></a>
+  <ul class="nav-links">
+    <li><a href="#porque" data-lang="es" class="active">Por Qué</a><a href="#porque" data-lang="en">Why Us</a></li>
+    <li><a href="#servicios" data-lang="es" class="active">Servicios</a><a href="#servicios" data-lang="en">Services</a></li>
+    <li><a href="#sobre" data-lang="es" class="active">Quién Soy</a><a href="#sobre" data-lang="en">About</a></li>
+    <li><a href="#contacto" data-lang="es" class="active">Contacto</a><a href="#contacto" data-lang="en">Contact</a></li>
+  </ul>
+  <div class="nav-lang">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span data-lang="es" class="active">Cartagena de Indias · Costa Caribe</span>
+      <span data-lang="en">Cartagena de Indias · Caribbean Coast</span>
+    </div>
+    <h1>
+      <span data-lang="es" class="active">No venimos a<br>explicarte el <em>futuro.</em><br>Venimos a<br>construirlo contigo.</span>
+      <span data-lang="en">We're not here to<br>explain the <em>future.</em><br>We're here to<br>build it with you.</span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="es" class="active">Consultoría de Inteligencia Artificial para empresas de Cartagena y la Costa Caribe que quieren operar mejor, crecer más rápido y liderar su sector.</span>
+      <span data-lang="en">Artificial Intelligence consulting for businesses in Cartagena and the Caribbean Coast that want to operate smarter, grow faster and lead their industry.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn-primary">
+        <span data-lang="es" class="active">Conversemos →</span>
+        <span data-lang="en">Let's Talk →</span>
+      </a>
+      <a href="#servicios" class="btn-secondary">
+        <span data-lang="es" class="active">Ver Servicios</span>
+        <span data-lang="en">Our Services</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="orbit">
+      <div class="orbit-ring"></div>
+      <div class="orbit-ring"></div>
+      <div class="orbit-ring"></div>
+      <div class="orbit-center"><span class="orbit-ia">IA</span></div>
+      <div class="orbit-dot"></div>
+      <div class="orbit-dot"></div>
+      <div class="orbit-dot"></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- POR QUE -->
+<section id="porque">
+  <div class="section-tag">
+    <span data-lang="es" class="active">Por Qué Nosotros</span>
+    <span data-lang="en">Why Us</span>
+  </div>
+  <h2 class="reveal">
+    <span data-lang="es" class="active">El Caribe no necesita<br>que le expliquen <span>quién es.</span></span>
+    <span data-lang="en">The Caribbean doesn't need<br>anyone to explain <span>who it is.</span></span>
+  </h2>
+  <p class="section-sub reveal">
+    <span data-lang="es" class="active">Cartagena tiene puertos que mueven el mundo, una cultura que inspira continentes y una identidad que no le pide permiso a nadie. Lo que necesita son herramientas para liderar también en lo digital.</span>
+    <span data-lang="en">Cartagena has ports that move the world, a culture that inspires continents and an identity that asks no one for permission. What it needs are tools to lead in the digital space too.</span>
+  </p>
+  <div class="porque-grid">
+    <div class="porque-card reveal">
+      <div class="card-num">01</div>
+      <h3><span data-lang="es" class="active">Arraigo real</span><span data-lang="en">Real roots</span></h3>
+      <p><span data-lang="es" class="active">No llegamos a vender y marcharnos. Llegamos a quedarnos. A trabajar en Cartagena, conocer su idiosincrasia y construir junto a quienes ya saben quiénes son.</span><span data-lang="en">We didn't come to sell and leave. We came to stay. To work in Cartagena, understand its culture and build alongside those who already know who they are.</span></p>
+    </div>
+    <div class="porque-card reveal">
+      <div class="card-num">02</div>
+      <h3><span data-lang="es" class="active">Experiencia ejecutada</span><span data-lang="en">Executed experience</span></h3>
+      <p><span data-lang="es" class="active">25 años en arquitectura, infraestructura y gestión de proyectos de gran escala. Proyectos por $7.300 millones. 319.000 m² modelados en BIM. No llegamos con teoría — llegamos con resultados.</span><span data-lang="en">25 years in architecture, infrastructure and large-scale project management. Projects worth $7.3B COP. 319,000 sqm modeled in BIM. We don't bring theory — we bring results.</span></p>
+    </div>
+    <div class="porque-card reveal">
+      <div class="card-num">03</div>
+      <h3><span data-lang="es" class="active">Sin tecnicismos</span><span data-lang="en">No jargon</span></h3>
+      <p><span data-lang="es" class="active">Explicamos la inteligencia artificial como debe explicarse: con claridad, con ejemplos reales y con respeto por el tiempo de quien escucha.</span><span data-lang="en">We explain artificial intelligence the way it should be explained: clearly, with real examples and respect for the listener's time.</span></p>
+    </div>
+    <div class="porque-card reveal">
+      <div class="card-num">04</div>
+      <h3><span data-lang="es" class="active">Ciudad por ciudad</span><span data-lang="en">City by city</span></h3>
+      <p><span data-lang="es" class="active">El cartagenero quiere que le hablen de Cartagena. No de soluciones genéricas. Cada propuesta está diseñada para el territorio, el sector y el momento específico del cliente.</span><span data-lang="en">Cartagena's business community wants to be spoken to about Cartagena. Not generic solutions. Every proposal is designed for the specific territory, sector and moment.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-tag">
+    <span data-lang="es" class="active">Servicios</span>
+    <span data-lang="en">Services</span>
+  </div>
+  <h2 class="reveal">
+    <span data-lang="es" class="active">Tres niveles,<br>un solo <span>objetivo.</span></span>
+    <span data-lang="en">Three levels,<br>one <span>goal.</span></span>
+  </h2>
+  <p class="section-sub reveal">
+    <span data-lang="es" class="active">Cada empresa tiene un punto de partida distinto. Elegimos juntos el nivel que más se ajusta a tu momento.</span>
+    <span data-lang="en">Every business has a different starting point. We choose together the level that best fits your moment.</span>
+  </p>
+  <div class="servicios-grid">
+    <div class="servicio-card reveal">
+      <div class="servicio-icon">🔍</div>
+      <div class="servicio-nivel">Nivel 1</div>
+      <h3><span data-lang="es" class="active">Diagnóstico IA</span><span data-lang="en">AI Diagnosis</span></h3>
+      <p><span data-lang="es" class="active">Sesión de 2–3 horas para mapear cómo la inteligencia artificial puede entrar en tu negocio. Entregable: informe con recomendaciones concretas.</span><span data-lang="en">2–3 hour session to map how artificial intelligence can enter your business. Deliverable: report with concrete recommendations.</span></p>
+      <div class="servicio-precio">$500K – $800K <span>/ sesión</span></div>
+    </div>
+    <div class="servicio-card featured reveal">
+      <div class="servicio-icon">🤝</div>
+      <div class="servicio-nivel">Nivel 2 — Núcleo</div>
+      <h3><span data-lang="es" class="active">Consultoría Mensual</span><span data-lang="en">Monthly Consulting</span></h3>
+      <p><span data-lang="es" class="active">Acompañamiento mensual para implementar IA en tu operación: automatización, contenido, análisis de datos y atención al cliente. Soy tu asesor externo de IA.</span><span data-lang="en">Monthly support to implement AI in your operation: automation, content, data analysis and customer service. I become your external AI advisor.</span></p>
+      <div class="servicio-precio">$1.5M – $2.5M <span>/ mes</span></div>
+    </div>
+    <div class="servicio-card reveal">
+      <div class="servicio-icon">⚡</div>
+      <div class="servicio-nivel">Nivel 3</div>
+      <h3><span data-lang="es" class="active">Proyecto Específico</span><span data-lang="en">Specific Project</span></h3>
+      <p><span data-lang="es" class="active">Desarrollo de una solución concreta: chatbot, flujo automatizado, estrategia de contenido con IA. Proyecto de 4–8 semanas con entregable definido.</span><span data-lang="en">Development of a concrete solution: chatbot, automated workflow, AI content strategy. 4–8 week project with a defined deliverable.</span></p>
+      <div class="servicio-precio">$3M – $6M <span>/ proyecto</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- SOBRE MI -->
+<section id="sobre">
+  <div class="sobre-wrap">
+    <div class="sobre-foto reveal">
+      <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80"
+           alt="Inteligencia Artificial — Transformamos Ideas IA"
+           style="width:100%;border-radius:8px;display:block;object-fit:cover;height:420px">
+    </div>
+    <div class="sobre-texto">
+      <div class="section-tag">
+        <span data-lang="es" class="active">Quién Soy</span>
+        <span data-lang="en">About Me</span>
+      </div>
+      <h2 class="reveal">
+        <span data-lang="es" class="active">Daniel Rueda<br><span>Serrano</span></span>
+        <span data-lang="en">Daniel Rueda<br><span>Serrano</span></span>
+      </h2>
+      <p class="section-sub reveal">
+        <span data-lang="es" class="active">Arquitecto, ex Oficial de la Armada Nacional de Colombia, fundador de Transformamos Ideas IA y productor del podcast No Hables — 2 años, 3 temporadas, 93 episodios incluyendo 8 video podcast grabados a bordo del Buque Escuela ARC Gloria.</span>
+        <span data-lang="en">Architect, former Naval Officer, founder of Transformamos Ideas IA and producer of the No Hables podcast — 2 years, 3 seasons, 93 episodes including 8 video podcast episodes recorded aboard the ARC Gloria Training Ship.</span>
+      </p>
+      <blockquote class="reveal">
+        <span data-lang="es" class="active">"No llegamos a explicarte el futuro. Llegamos a construirlo contigo, aquí, en Cartagena."</span>
+        <span data-lang="en">"We're not here to explain the future. We're here to build it with you, right here, in Cartagena."</span>
+      </blockquote>
+      <div class="hitos reveal">
+        <div class="hito">
+          <div class="hito-num">25+</div>
+          <div class="hito-label"><span data-lang="es" class="active">Años de experiencia</span><span data-lang="en">Years of experience</span></div>
+        </div>
+        <div class="hito">
+          <div class="hito-num">$7.3B</div>
+          <div class="hito-label"><span data-lang="es" class="active">COP en proyectos</span><span data-lang="en">COP in projects</span></div>
+        </div>
+        <div class="hito">
+          <div class="hito-num">24</div>
+          <div class="hito-label"><span data-lang="es" class="active">Proyectos militares</span><span data-lang="en">Military projects</span></div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem" class="reveal">
+        <a href="https://www.linkedin.com/in/danielrueda-ia" target="_blank" class="btn-secondary" style="width:fit-content">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contacto-inner">
+    <div class="section-tag">
+      <span data-lang="es" class="active">Contacto</span>
+      <span data-lang="en">Contact</span>
+    </div>
+    <h2 class="reveal">
+      <span data-lang="es" class="active">¿Tu empresa está lista<br>para dar el <span>siguiente paso?</span></span>
+      <span data-lang="en">Is your business ready<br>to take the <span>next step?</span></span>
+    </h2>
+    <p class="section-sub reveal">
+      <span data-lang="es" class="active">Sin formularios largos. Sin procesos complicados. Una conversación directa para entender qué necesitas y cómo podemos ayudarte.</span>
+      <span data-lang="en">No long forms. No complicated processes. A direct conversation to understand what you need and how we can help.</span>
+    </p>
+    <div class="contacto-btns reveal">
+      <a href="https://wa.me/573138248867?text=Hola%20Daniel%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Transformamos%20Ideas%20IA" target="_blank" class="btn-primary">
+        <span data-lang="es" class="active">WhatsApp →</span>
+        <span data-lang="en">WhatsApp →</span>
+      </a>
+      <a href="mailto:transformamosideas2026@gmail.com" class="btn-secondary">
+        <span data-lang="es" class="active">Enviar Email</span>
+        <span data-lang="en">Send Email</span>
+      </a>
+    </div>
+    <div class="contacto-info reveal">
+      <div class="contacto-item">
+        <span class="ci-label"><span data-lang="es" class="active">Teléfono</span><span data-lang="en">Phone</span></span>
+        <a href="tel:+573138248867" class="ci-val">+57 313 824 8867</a>
+      </div>
+      <div class="contacto-item">
+        <span class="ci-label">Email</span>
+        <a href="mailto:transformamosideas2026@gmail.com" class="ci-val">transformamosideas2026@gmail.com</a>
+      </div>
+      <div class="contacto-item">
+        <span class="ci-label"><span data-lang="es" class="active">Ubicación</span><span data-lang="en">Location</span></span>
+        <span class="ci-val">Bucaramanga · Cartagena de Indias, Colombia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Transformamos <span>Ideas IA</span></span>
+  <p>© 2026 Transformamos Ideas IA — Cartagena de Indias</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/danielrueda-ia" target="_blank">LinkedIn</a>
+    <a href="https://linktr.ee/danielruedaserrano" target="_blank">Linktree</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .15 });
+reveals.forEach(r => obs.observe(r));
+
+// Idioma
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('active', el.dataset.lang === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.padding =
+    window.scrollY > 40 ? '.8rem 3rem' : '1.2rem 3rem';
+});
+</script>
+</body>
+</html>
